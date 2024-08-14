@@ -19,12 +19,15 @@ let ArmstrongNumber = false;
 let PrimeNumber = true;
 let factors = [];
 
+     
+//  check the Sum of the digits....
 let temp = num;
 while (temp > 0) {
     sum += temp % 10;
     temp = Math.floor(temp / 10);
 }
-
+     
+// Check if the number is an Armstrong number....
 temp = num;
 let armstrongSum = 0;
 const numDigits = num.toString().length;
@@ -38,7 +41,8 @@ while (temp > 0) {
 if (armstrongSum === Number) {
     ArmstrongNumber = true;
 }
-
+     
+// Check if the number is a prime number.....
 if (num <= 1) {
     PrimeNumber = false;
 } else if (num <= 3) {
@@ -53,7 +57,8 @@ if (num <= 1) {
         }
     }
 }
-
+     
+// Find all factors of the number...
 for (let i = 1; i <= Math.sqrt(num); i++) {
     if (num % i === 0) {
         factors.push(i);
