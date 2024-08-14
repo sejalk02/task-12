@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+    
+</head>
+<body>
+    
+<h1>LOOPS</h1>
+ <script>
+        
+let num = 153; 
+
+let Number = num;
+let sum = 0;
+let ArmstrongNumber = false;
+let PrimeNumber = true;
+let factors = [];
+
+let temp = num;
+while (temp > 0) {
+    sum += temp % 10;
+    temp = Math.floor(temp / 10);
+}
+
+temp = num;
+let armstrongSum = 0;
+const numDigits = num.toString().length;
+
+while (temp > 0) {
+    const digit = temp % 10;
+    armstrongSum += Math.pow(digit, numDigits);
+    temp = Math.floor(temp / 10);
+}
+
+if (armstrongSum === Number) {
+    ArmstrongNumber = true;
+}
+
+if (num <= 1) {
+    PrimeNumber = false;
+} else if (num <= 3) {
+    PrimeNumber = true;
+} else if (num % 2 === 0 || num % 3 === 0) {
+    PrimeNumber = false;
+} else {
+    for (let i = 5; i * i <= num; i += 6) {
+        if (num % i === 0 || num % (i + 2) === 0) {
+            PrimeNumber = false;
+            break;
+        }
+    }
+}
+
+for (let i = 1; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+        factors.push(i);
+        if (i !== num / i) {
+            factors.push(num / i);
+        }
+    }
+}
+factors.sort((a, b) => a - b);
+
+console.log(`Sum of digits: ${sum}`);
+console.log(`Is it an Armstrong number: ${ArmstrongNumber}`);
+console.log(`Is it a Prime number: ${PrimeNumber}`);
+console.log(`Factors: ${factors.join(', ')}`);
+
+
+    </script> 
+
+
+</body>
+</html> 
